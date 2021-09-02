@@ -1,10 +1,10 @@
 {
   "name": "Zero",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "",
-  "main": "src/main.js",
+  "main": "src/shard.js",
   "scripts": {
-    "start": "node src/main.js",
+    "start": "node src/shard.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
