@@ -1,8 +1,8 @@
-let prefix = '!';
+const utils = require("../utils/message")
 
 module.exports = (client, message) => {
 	if (message.author.bot) return;
-
+	
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
 	const cmd = args.shift().toLowerCase();
 	
@@ -11,5 +11,7 @@ module.exports = (client, message) => {
 	
 	if (!command) command = client.commands.get(client.aliases.get(cmd));
 	if (!command) return;
-	if (command) command.run(client, message, args);
+	
+	utils.verification(client, command, message, args)
+	
 };

@@ -1,11 +1,13 @@
-const Discord = require('discord.js');
+const { Client, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
+const { prefix } = require("./config.json")
 
-class ZeroClient extends Discord.Client {
+class ZeroClient extends Client {
 	constructor(options) {
 		super(options);
-		this.commands = new Discord.Collection();
-		this.aliases = new Discord.Collection();
+		this.commands = new Collection();
+		this.aliases = new Collection();
+		this.prefix = prefix
 	}
 
 	login() {
@@ -48,4 +50,4 @@ class ZeroClient extends Discord.Client {
 
 module.exports = {
 	ZeroClient
-};
+}
