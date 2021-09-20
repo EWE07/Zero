@@ -1,6 +1,7 @@
 const { Client, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
-const { prefix } = require("./config.json")
+const { prefix, token } = require("../../config.json")
+const error = require("../errors/error.js")
 
 class ZeroClient extends Client {
 	constructor(options) {
@@ -8,11 +9,12 @@ class ZeroClient extends Client {
 		this.commands = new Collection();
 		this.aliases = new Collection();
 		this.prefix = prefix
-	}
+}
 
-	login() {
-		super.login(process.env.token);
-	}
+	login(command, event) {
+		let Token = process.env.token || token
+		error.ValidToken(Token)
+		super.login(Token);
 
 	LoadCommands() {
 		readdirSync('./src/commands').forEach(dir => {
@@ -47,7 +49,7 @@ class ZeroClient extends Client {
 		}
 	}
 }
-
+}
 module.exports = {
 	ZeroClient
 }
