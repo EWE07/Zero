@@ -1,3 +1,3 @@
-module.exports = (client) => {
+module.exports = () => {
 	console.log("Bot running")
 }

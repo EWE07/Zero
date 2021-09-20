@@ -1,7 +1,6 @@
 const { ZeroClient } = require('./structure/Client');
+const client = new ZeroClient();
 
-let client = new ZeroClient();
-
-client.login();
-client.LoadCommands();
-client.LoadEvents();
+client.login(true, true);
+//client.LoadCommands();
+//client.LoadEvents();

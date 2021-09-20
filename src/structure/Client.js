@@ -1,16 +1,20 @@
-const Discord = require('discord.js');
+const { Client, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
+const { prefix, token } = require("../../config.json")
+const error = require("../errors/error.js")
 
-class ZeroClient extends Discord.Client {
+class ZeroClient extends Client {
 	constructor(options) {
 		super(options);
-		this.commands = new Discord.Collection();
-		this.aliases = new Discord.Collection();
-	}
+		this.commands = new Collection();
+		this.aliases = new Collection();
+		this.prefix = prefix
+}
 
-	login() {
-		super.login(process.env.token);
-	}
+	login(command, event) {
+		let Token = process.env.token || token
+		error.ValidToken(Token)
+		super.login(Token);
 
 	LoadCommands() {
 		readdirSync('./src/commands').forEach(dir => {
@@ -45,7 +49,7 @@ class ZeroClient extends Discord.Client {
 		}
 	}
 }
-
+}
 module.exports = {
 	ZeroClient
-};
+}
