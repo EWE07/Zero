@@ -11,7 +11,7 @@ class ZeroClient extends Client {
 		this.prefix = prefix
 }
 
-	login(command, event) {
+	login() {
 		let Token = process.env.token || token
 		error.ValidToken(Token)
 		super.login(Token);
