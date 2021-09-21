@@ -1,26 +1,26 @@
 const { Client, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
-const { prefix, token } = require("../../config.json")
-const error = require("../errors/error.js")
+const { prefix, token } = require("../../config.json");
+const error = require("../errors/error.js");
 
 class ZeroClient extends Client {
 	constructor(options) {
 		super(options);
 		this.commands = new Collection();
 		this.aliases = new Collection();
-		this.prefix = prefix
+		this.prefix = prefix;
 }
 
 	login() {
-		let Token = process.env.token || token
-		error.ValidToken(Token)
+		let Token = process.env.token || token;
+		error.ValidToken(Token);
 		super.login(Token);
 	}
 
 	LoadCommands() {
 		readdirSync('./src/commands').forEach(dir => {
 			const commands = readdirSync(`./src/commands/${dir}/`).filter(file =>
-				file.endsWith('.js')
+				file.endsWith('.js');
 			);
 			for (let file of commands) {
 				let pull = require(`../commands/${dir}/${file}`);
