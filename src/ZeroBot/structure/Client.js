@@ -53,7 +53,7 @@ class ZeroClient extends Client {
         pull.event = pull.event || file.replace(".js", "");
         this.on(pull.event, pull.bind(null, this));
       } catch (err) {
-        console.log("Zero: " + err);
+        console.log(err);
       }
     }
   }
