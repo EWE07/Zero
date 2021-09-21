@@ -1,7 +1,7 @@
 module.exports = {
   name: "eval",
   onwer: true,
-  run: ({ message, args }) => {
+  run: (client, message, args) => {
     message.channel.send(`\`\`\` ${eval(args)} \`\`\``);
   },
 };

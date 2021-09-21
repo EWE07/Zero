@@ -1,3 +1,4 @@
 {
-  "prefix": "YourPrefixHere"
+  "prefix": "YourPrefixHere",
+  "port": PortNumber
 }

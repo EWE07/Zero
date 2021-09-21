@@ -2,7 +2,6 @@ const express = require("express")
 const app = express()
 
 const { port } = require("../../config.json")
-
 const Port = port || 8080
 
 app.get("/", (req, res) => {

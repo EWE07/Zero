@@ -1,4 +1,5 @@
 const utils = require("../utils/message");
+const { prefix } = require("../../../config.json");
 
 module.exports = (client, message) => {
   if (message.author.bot || message.author.webhook) return;
