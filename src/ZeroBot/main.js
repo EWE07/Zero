@@ -1,4 +1,4 @@
-const { ZeroClient } = require('./structure/Client');
+const { ZeroClient } = require("./structure/Client");
 const client = new ZeroClient();
 
 client.login();
