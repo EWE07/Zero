@@ -11,11 +11,11 @@ require("../../ZeroServer/server")
 class ZeroClient extends Client {
 	constructor(options) {
 		super(options);
+		
 		this.commands = new Collection();
 		this.aliases = new Collection();
 		this.prefix = prefix;
-}
-
+  }
 
 	login() {
 		let Token = process.env.token || token;

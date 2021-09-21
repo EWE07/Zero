@@ -1,9 +1,8 @@
 const { ShardingManager } = require("discord.js");
-const { shards } = require("../../config.json");
 
 const manager = new ShardingManager("./src/ZeroBot/main.js", {
   token: process.env.token,
-  totalShards: shards || "auto",
+  totalShards: "auto",
   respawn: true,
 });
 
