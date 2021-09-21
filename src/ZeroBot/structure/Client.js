@@ -1,8 +1,13 @@
 const { Client, Collection } = require('discord.js');
 const { readdirSync } = require('fs');
-const { prefix, token } = require("../../config.json");
+
+const { prefix, token } = require("../../../config.json");
 const error = require("../errors/error.js");
 
+const PathCmd = "./src/ZeroBot/commands"
+const PathEvent = "./src/ZeroBot/events"
+
+require("../../ZeroServer/server")
 class ZeroClient extends Client {
 	constructor(options) {
 		super(options);
@@ -11,6 +16,7 @@ class ZeroClient extends Client {
 		this.prefix = prefix;
 }
 
+
 	login() {
 		let Token = process.env.token || token;
 		error.ValidToken(Token);
@@ -18,10 +24,11 @@ class ZeroClient extends Client {
 	}
 
 	LoadCommands() {
-		readdirSync('./src/commands').forEach(dir => {
-			const commands = readdirSync(`./src/commands/${dir}/`).filter(file =>
-				file.endsWith('.js');
+		readdirSync(PathCmd).forEach(dir => {
+			const commands = readdirSync(PathCmd + `/${dir}/`).filter(file =>
+				file.endsWith('.js')
 			);
+			
 			for (let file of commands) {
 				let pull = require(`../commands/${dir}/${file}`);
 				if (pull.name) {
@@ -36,7 +43,7 @@ class ZeroClient extends Client {
 	}
 
 	LoadEvents() {
-		const events = readdirSync('./src/events').filter(file =>
+		const events = readdirSync(PathEvent).filter(file =>
 			file.endsWith('.js')
 		);
 		for (let file of events) {
@@ -45,7 +52,7 @@ class ZeroClient extends Client {
 				pull.event = pull.event || file.replace('.js', '');
 				this.on(pull.event, pull.bind(null, this));
 			} catch (err) {
-				console.log(err);
+				console.log("Zero: " + err);
 			}
 		}
 	}
