@@ -4,4 +4,4 @@ image:
 tasks:
   - init: node --version
 
-  - command: node i
+  - command: npm i
