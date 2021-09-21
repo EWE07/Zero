@@ -1,0 +1,7 @@
+image:
+  file: Dockerfile
+
+tasks:
+  - init: node --version
+
+  - command: node i

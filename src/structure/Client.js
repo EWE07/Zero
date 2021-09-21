@@ -15,6 +15,7 @@ class ZeroClient extends Client {
 		let Token = process.env.token || token
 		error.ValidToken(Token)
 		super.login(Token);
+	}
 
 	LoadCommands() {
 		readdirSync('./src/commands').forEach(dir => {
@@ -49,7 +50,7 @@ class ZeroClient extends Client {
 		}
 	}
 }
-}
+
 module.exports = {
 	ZeroClient
 }

@@ -1,6 +1,6 @@
 {
-  "name": "Zero",
-  "version": "0.0.5",
+  "name": "zero",
+  "version": "0.1.0",
   "description": "",
   "main": "src/shard.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/EWE07/Zero.git"
   },
   "keywords": [],
-  "author": "07",
+  "author": "EWE07",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/EWE07/Zero/issues"
