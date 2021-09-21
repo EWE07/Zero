@@ -1,6 +1,6 @@
 {
   "name": "zero",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "main": "src/ZeroBot/shard.js",
   "scripts": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/EWE07/Zero#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.3.0"
   }
 }

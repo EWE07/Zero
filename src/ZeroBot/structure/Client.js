@@ -2,12 +2,14 @@ const { Client, Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 
 const { prefix, token } = require("../../../config.json");
-const error = require("../errors/error.js");
 
 const PathCmd = "./src/ZeroBot/commands";
 const PathEvent = "./src/ZeroBot/events";
 
 require("../../ZeroServer/server");
+
+let pull;
+
 class ZeroClient extends Client {
   constructor(options) {
     super(options);
@@ -19,7 +21,6 @@ class ZeroClient extends Client {
 
   login() {
     let Token = process.env.token || token;
-    error.ValidToken(Token);
     super.login(Token);
   }
 
@@ -30,8 +31,8 @@ class ZeroClient extends Client {
       );
 
       for (let file of commands) {
-        let pull = require(`../commands/${dir}/${file}`);
-        if (pull.name) {
+        pull = require(`../commands/${dir}/${file}`);
+        if (pull.name) {        
           this.commands.set(pull.name, pull);
         } else {
           continue;
@@ -48,7 +49,7 @@ class ZeroClient extends Client {
     );
     for (let file of events) {
       try {
-        let pull = require(`../events/${file}`);
+        pull = require(`../events/${file}`);
         pull.event = pull.event || file.replace(".js", "");
         this.on(pull.event, pull.bind(null, this));
       } catch (err) {
