@@ -1,7 +1,3 @@
-image:
-  file: Dockerfile
-
 tasks:
-  - init: node --version
-
-  - command: npm i
+  - init: npm install
+    command: echo "Ready!"
