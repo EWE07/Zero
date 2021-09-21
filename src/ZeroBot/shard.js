@@ -1,5 +1,6 @@
 const { ShardingManager } = require('discord.js'); 
 const { shards } = require("../config.json")
+
 const manager = new ShardingManager('./src/main.js', {
 	token: process.env.token,	
 	totalShards: shards || 'auto',	
