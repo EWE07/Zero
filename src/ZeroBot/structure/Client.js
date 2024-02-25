@@ -1,9 +1,7 @@
-const { Client, Collection } = require("discord.js");
+const { Client, Collection, GatewayIntentBits, Events } = require("discord.js");
 const { readdirSync } = require("fs");
 
 const { prefix, token } = require("../../../config.json");
-const { error } = require("console");
-const { exit } = require("process");
 
 const PathCmd = "./src/ZeroBot/commands";
 const PathEvent = "./src/ZeroBot/events";
@@ -22,8 +20,7 @@ class ZeroClient extends Client {
   }
 
   login() {
-    let Token = process.env.token || token;
-    super.login(Token);
+    super.login(token);
   }
 
   LoadCommands() {
@@ -53,7 +50,15 @@ class ZeroClient extends Client {
       try {
         pull = require(`../events/${file}`);
         pull.event = pull.event || file.replace(".js", "");
-        this.on(pull.event, pull.bind(null, this));
+
+        if (pull.event == "ready") {
+          this.on(Events.ClientReady, pull.bind(null, this));
+        }
+        if (pull.event == "message") {
+          this.on(Events.MessageCreate, pull.bind(null, this));
+        }
+
+        //this.on(pull.event, pull.bind(null, this));
       } catch (err) {
         console.log(err);
       }
@@ -63,4 +68,5 @@ class ZeroClient extends Client {
 
 module.exports = {
   ZeroClient,
+  GatewayIntentBits
 };

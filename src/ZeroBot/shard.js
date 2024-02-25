@@ -1,5 +1,5 @@
 const { ShardingManager } = require("discord.js");
-const { token } = require("../../config.json") || process.env.token;
+const { token } = require("../../config.json");
 
 function runBot() {
   if (token == undefined) {
@@ -11,7 +11,7 @@ function runBot() {
 runBot()
 
 const manager = new ShardingManager("./src/ZeroBot/main.js", {
-  token: process.env.token,
+  token: token,
   totalShards: "auto",
   respawn: true,
 });
