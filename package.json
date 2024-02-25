@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/ZeroBot/shard.js",
   "scripts": {
-    "start": "clear && node src/ZeroBot/shard.js",
+    "start": "node src/ZeroBot/initial.js",
     "server": "node src/ZeroServer/server.js"
   },
   "repository": {

@@ -7,7 +7,6 @@ const fs = require("node:fs");
 const { prefix, token } = require("../../../config.json");
 
 const PathCmd = "./src/ZeroBot/commands";
-const PathEvent = "./src/ZeroBot/events";
 
 require("../../ZeroServer/server");
 
