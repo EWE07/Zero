@@ -3,12 +3,12 @@ const { token } = require("../../config.json");
 
 function runBot() {
   if (token == undefined) {
-    console.error("ZeroBot: Token undefined")
-    process.exit(1)
+    console.error("ZeroBot: Token undefined");
+    process.exit(1);
   }
 }
 
-runBot()
+runBot();
 
 const manager = new ShardingManager("./src/ZeroBot/main.js", {
   token: token,
