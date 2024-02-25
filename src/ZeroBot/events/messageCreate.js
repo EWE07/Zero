@@ -18,7 +18,7 @@ module.exports = {
 
     if (!command) command = client.commands.get(client.aliases.get(cmd));
     if (!command) return;
-
+    console.log(cmd, args)
     utils.verification(client, command, message, args);
   },
 };
