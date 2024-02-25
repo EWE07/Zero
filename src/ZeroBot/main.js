@@ -6,6 +6,7 @@ const client = new ZeroClient({ intents: [
     GatewayIntentBits.GuildMembers,
 ] });
 
+
 client.login();
 client.LoadCommands();
 client.LoadEvents();
