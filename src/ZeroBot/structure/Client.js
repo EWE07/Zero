@@ -2,6 +2,8 @@ const { Client, Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 
 const { prefix, token } = require("../../../config.json");
+const { error } = require("console");
+const { exit } = require("process");
 
 const PathCmd = "./src/ZeroBot/commands";
 const PathEvent = "./src/ZeroBot/events";
@@ -13,7 +15,7 @@ let pull;
 class ZeroClient extends Client {
   constructor(options) {
     super(options);
-
+    this.OS = process.platform
     this.commands = new Collection();
     this.aliases = new Collection();
     this.prefix = prefix;
