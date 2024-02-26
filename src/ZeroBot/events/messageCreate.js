@@ -5,8 +5,7 @@ const { Events } = require("../structure/Client");
 module.exports = {
   name: Events.MessageCreate,
   once: true,
-
-  execute(client, message) {
+  execute: (client, message) => {
     if (message.author.bot || message.author.webhook) return;
     if (message.channel.type === "dm") return;
 
@@ -18,7 +17,7 @@ module.exports = {
 
     if (!command) command = client.commands.get(client.aliases.get(cmd));
     if (!command) return;
-    console.log(cmd, args)
+
     utils.verification(client, command, message, args);
   },
 };

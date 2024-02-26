@@ -1,4 +1,4 @@
-const { ZeroClient, GatewayIntentBits, Events } = require("./structure/Client");
+const { ZeroClient, GatewayIntentBits } = require("./structure/Client");
 const client = new ZeroClient({
   intents: [
     GatewayIntentBits.Guilds,
