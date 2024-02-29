@@ -17,5 +17,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(Port, () => {
-console.log(`Zero: Server Running in port ${Port}`);
+console.log(`ZeroServer: Server Running in port ${Port}`);
 });

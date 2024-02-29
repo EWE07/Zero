@@ -1,6 +1,6 @@
 {
-  "name": "zero",
-  "version": "0.2.1",
+  "name": "Zero",
+  "version": "0.2.2",
   "description": "",
   "main": "src/ZeroBot/shard.js",
   "scripts": {

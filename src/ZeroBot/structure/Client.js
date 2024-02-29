@@ -5,7 +5,7 @@ const path = require("node:path");
 const fs = require("node:fs");
 
 const { prefix, token } = require("../../../config.json");
-const {color} = require("../../ZeroNode/node")
+const { color } = require("../../ZeroNode/node");
 const PathCmd = "./src/ZeroBot/commands";
 
 require("../../ZeroServer/server");
@@ -54,7 +54,7 @@ class ZeroClient extends Client {
       const filePath = path.join(eventsPath, file);
       const event = require(filePath);
 
-      console.log(color("red", "ZeroBot: Loading " + event.name + " event"))
+      console.log(color("blue", "ZeroBot: Loading " + event.name + " event"));
 
       if (event.once) {
         this.on(event.name, (...args) => event.execute(this, ...args));

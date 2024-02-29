@@ -22,7 +22,6 @@ function runBot() {
     console.error("ZeroBot: Token undefined");
     process.exit(1);
   }
-
   runShard();
 }
 
