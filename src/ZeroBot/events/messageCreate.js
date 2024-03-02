@@ -1,6 +1,7 @@
 const utils = require("../utils/message");
 const { prefix } = require("../../../config.json");
 const { Events } = require("../structure/Client");
+const { data } = require("../commands/information/ping");
 
 module.exports = {
   name: Events.MessageCreate,
@@ -13,11 +14,11 @@ module.exports = {
     const cmd = args.shift().toLowerCase();
 
     if (cmd.length === 0) return;
-    let command = client.commands.get(cmd);
 
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-    if (!command) return;
+    let command = client.commands.get(cmd)  || client.commands.get(client.aliases.get(cmd));
 
+    if (!command) return
+    
     utils.verification(client, command, message, args);
   },
 };
