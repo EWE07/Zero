@@ -4,7 +4,7 @@ const { Events } = require("../structure/Client");
 const { data } = require("../commands/information/ping");
 
 module.exports = {
-  name: Events.InteractionCreate,
+  name: Events.MessageCreate,
   once: true,
   execute: (client, message) => {
     if (message.author.bot || message.author.webhook) return;
