@@ -12,7 +12,7 @@
     "url": "git+https://github.com/EWE07/Zero.git"
   },
   "keywords": [],
-  "author": "07",
+  "author": "EWE07",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/EWE07/Zero/issues"
@@ -23,5 +23,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.17.1",
     "express-rate-limit": "^5.3.0"
-  }
+  },
+  "devDependencies": {
+  "undici": ">=5.28.3"
+}
 }
