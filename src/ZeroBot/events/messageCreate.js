@@ -1,7 +1,6 @@
 const utils = require("../utils/message");
 const { prefix } = require("../../../config.json");
 const { Events } = require("../structure/Client");
-const { data } = require("../commands/information/ping");
 
 module.exports = {
   name: Events.MessageCreate,
